@@ -1,0 +1,5 @@
+# Rust build files
+target/
+
+# macOS garbage
+.DS_STORE
