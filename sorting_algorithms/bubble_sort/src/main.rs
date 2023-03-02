@@ -1,15 +1,18 @@
+use rand::{thread_rng, Rng};
+
 fn main() {
     // Bubble Sort
-    // first read in an array of numbers
-    let mut user_input = String::new();
-    println!("Enter a list of numbers separated by spaces:");
-    std::io::stdin().read_line(&mut user_input).unwrap();
 
-    // parse to a vec of i32 integers
+    // generate 100 random numbers
+    println!("Random numbers:");
     let mut numbers: Vec<i32> = Vec::new();
-    for entry in user_input.trim().split(" ") {
-        numbers.push(entry.parse().unwrap());
+    for _ in 0..100 {
+        let mut rng = thread_rng();
+        let random_number = rng.gen_range(0..100);
+        numbers.push(random_number);
+        print!("{} ", random_number);
     }
+    print!("\n");
 
     // track changes and vec size
     let mut do_next: bool = true;
@@ -45,7 +48,7 @@ fn main() {
     }
 
     // print the sorted list
-    println!("Your numbers are sorted!");
+    println!("Sorted numbers:");
     for _num in numbers.iter() {
         print!("{} ", _num);
     }
